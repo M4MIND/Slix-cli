@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Generator Slix project",
   "main": "bin/cli.js",
+  "bin": {
+    "slix": "bin/cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
