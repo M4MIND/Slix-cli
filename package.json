@@ -1,0 +1,22 @@
+{
+  "name": "slix-cli",
+  "version": "0.0.0",
+  "description": "Generator Slix project",
+  "main": "bin/cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M4MIND/Slix-cli.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M4MIND/Slix-cli/issues"
+  },
+  "homepage": "https://github.com/M4MIND/Slix-cli#readme",
+  "devDependencies": {
+    "slix": "git+https://github.com/M4MIND/Slix.git"
+  }
+}
