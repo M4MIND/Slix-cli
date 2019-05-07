@@ -69,7 +69,7 @@ program
     .option('-n, --name [Name project]', 'Name project', 'Slix project')
     .parse(process.argv);
 
-pkg.dependencies['name'] = program.name;
+pkg['name'] = program.name;
 
 
 for (let dir of folders) {
