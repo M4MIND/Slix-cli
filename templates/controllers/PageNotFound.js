@@ -6,7 +6,7 @@ export default class PageNotFound extends AbstractController {
     }
 
     index = async (Request) => {
-        return this.App.render('pageNotFound', {
+        return this.App.render('error/404', {
             title: "Page not found"
         });
     }
