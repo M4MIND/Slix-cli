@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "description": "Generator Slix project",
   "main": "bin/cli.js",
+  "preferGlobal": true,
   "bin": {
     "slix": "bin/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node bin/cli.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
   "homepage": "https://github.com/M4MIND/Slix-cli#readme",
   "devDependencies": {
     "slix": "git+https://github.com/M4MIND/Slix.git"
+  },
+  "dependencies": {
+    "commander": "^2.20.0",
+    "mkdirp": "^0.5.1"
   }
 }
