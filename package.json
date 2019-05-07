@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "commander": "^2.20.0",
+    "core-js": "^3.0.1",
     "mkdirp": "^0.5.1"
   }
 }

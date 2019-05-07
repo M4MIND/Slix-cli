@@ -34,7 +34,8 @@ var pkg = {
     dependencies: {
         "natives": "^1.1.6",
         "twig": "^1.13.2",
-        "slix": "git+https://github.com/M4MIND/Slix.git"
+        "slix": "git+https://github.com/M4MIND/Slix.git",
+        "core-js": "^3.0.1"
     },
     devDependencies: {
         "@babel/cli": "^7.2.3",
