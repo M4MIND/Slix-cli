@@ -77,9 +77,9 @@ for (let dir of folders) {
 
 for (let file of copyFiles) {
     mkdir.sync(path.dirname(file));
-    fs.copyFileSync(path.join(templatesPath, file), path.join(__dirname, '..', file));
+    fs.copyFileSync(path.join(templatesPath, file), path.join('/', file));
 }
 
-fs.writeFileSync(path.join(__dirname, '..', 'package.json'), JSON.stringify(pkg, null, '\t'));
+fs.writeFileSync('package.json', JSON.stringify(pkg, null, '\t'));
 
 console.log('Done! Run the "npm install" command');
