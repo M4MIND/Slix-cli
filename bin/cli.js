@@ -15,14 +15,15 @@ var folders = [
 ];
 
 var copyFiles = [
-     'index.js',
-     'controllers/IndexController.js',
-     'controllers/PageNotFound.js',
-     'controllers/PageNotFound.js',
-     'static/css/style.css',
-     'views/layout/layout.twig',
-     'views/index.twig',
-     'views/error/404.twig'
+    'index.js',
+    'controllers/IndexController.js',
+    'controllers/PageNotFound.js',
+    'controllers/PageNotFound.js',
+    'static/css/style.css',
+    'views/layout/layout.twig',
+    'views/index.twig',
+    'views/error/404.twig',
+    '.babelrc'
 ];
 
 var pkg = {
