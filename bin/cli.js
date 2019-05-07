@@ -77,7 +77,7 @@ for (let dir of folders) {
 
 for (let file of copyFiles) {
     mkdir.sync(path.dirname(file));
-    fs.copyFileSync(path.join(templatesPath, file), path.join('/', file));
+    fs.copyFileSync(path.join(templatesPath, file), file);
 }
 
 fs.writeFileSync('package.json', JSON.stringify(pkg, null, '\t'));
