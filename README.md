@@ -4,7 +4,7 @@ Installation
 ------------
 
 ```bash
-$ npm install -g https://github.com/M4MIND/Slix-cli.git
+$ npm i -g slix-cli
 ```
 
 Quick Start

@@ -19,10 +19,7 @@ var copyFiles = [
     {file: 'controllers/IndexController.js'},
     {file: 'controllers/PageNotFound.js'},
     {file: 'controllers/PageNotFound.js'},
-    {
-        file: 'static/css/style.css',
-        type: 'css'
-    },
+    {file: 'static/css/style.css'},
     {
         file: 'static/css/style.less',
         type: 'less'

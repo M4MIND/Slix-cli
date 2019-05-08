@@ -81,7 +81,81 @@
     </div>
     <div class="content__wrapper">
         <div class="content__container">
-            {% block BODY %}
+            <h2 class="title">Create controllers:</h2>
+
+            <p>In folder controllers create files IndexController.js and PageNotFoundController.js
+                then add in files this code:
+                <br><br>
+
+            <h4 class="title title--no-border">Index controller</h4>
+            <pre class="code">
+import {AbstractController, Response} from "slix"
+
+export default class IndexController extends AbstractController {
+    mount() {
+        this.GET('/', this.index);
+    }
+
+    index (request) {
+        return new Response("Index controller")
+    }
+}
+            </pre>
+            <H4 class="title title--no-border">Page not found controller</H4>
+            <pre class="code">
+import {AbstractController, Response} from "slix"
+
+export default class PageNotFoundController extends AbstractController {
+    mount() {
+        this.ALL('*', this.index);
+    }
+
+    index = async (request) => {
+        return new Response('Error 404', Response.HTTP_NOT_FOUND)
+    }
+}
+            </pre>
+            <br>
+            <h2 class="title">Rendering templates:</h2>
+            <p>
+                This framework use Twig template engine Twig<br><br>
+                Create file index.twig in folder views and add this code in method controller:
+            </p>
+
+            <pre class="code">
+index (request) {
+    return await this.App.render('index', {
+        title: 'Index'
+    })
+}
+            </pre>
+
+            <h2 class="title">Routing:</h2>
+            <p>
+                In controllers that inherit from AbstractController, there is a mount method that performs controller
+                mounting
+            </p>
+            <pre class="code">
+this.GET('/', this.index);
+this.POST('/', this.index);
+this.PUT('/', this.index);
+this.DELETE('/', this.index);
+this.HEAD('/', this.index);
+this.OPTIONS('/', this.index);
+this.CONNECT('/', this.index);
+this.TRACE('/', this.index);
+this.ALL('/', this.index); 
+            </pre>
+
+            <br>
+
+            <h2 class="title">Response Object: </h2>
+            <pre class="code">
+new Response(content, RESPONSE.HTTP_OK);
+new JsonResponse({test: "test"});
+new FileResponse(content, typeContent);
+new RedirectResponse(url, Response.HTTP_FOUND);
+            </pre>
         </div>
     </div>
 </div>

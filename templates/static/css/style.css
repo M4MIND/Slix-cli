@@ -1,6 +1,147 @@
-html, body {
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+}
+p {
+  font-family: monospace;
+  color: var(--gray);
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 14px;
+  background: #f9f9fc;
+  color: #646c9a;
 }
+.content__wrapper {
+  display: grid;
+  grid-template-rows: 65px 1fr 65px;
+  grid-template-columns: 1fr 1000px 1fr;
+}
+.content__container {
+  background-color: #ffffff;
+  border-radius: 4px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding: 40px;
+}
+.logo {
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: auto 0;
+}
+.logo span {
+  font-weight: normal;
+  color: #788195;
+  border-left: 1px solid #40444d;
+  display: inline-block;
+  margin-left: 12px;
+  padding-left: 12px;
+  font-size: 80%;
+  vertical-align: middle;
+}
+.header {
+  background-color: #2b303b;
+  display: grid;
+  grid-template-rows: 65px 50px;
+  grid-template-columns: 1fr 1000px 1fr;
+}
+.header__inner {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+}
+.menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+}
+.menu li > a {
+  color: #788195;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.menu li > a:hover {
+  color: #ffffff;
+}
+.code {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  display: block;
+  background-color: var(--light);
+  border-radius: 2px;
+  font-family: monospace;
+}
+.title {
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.title--no-border {
+  border-bottom: none;
+}
+.str {
+  color: var(--danger);
+}
+.func {
+  color: var(--blue);
+}
+.comm {
+  color: var(--warning);
+}
+.kwrd {
+  font-weight: bold;
+}
+.str span {
+  color: var(--danger);
+  font-weight: normal;
+}
+.comm span {
+  color: var(--warning);
+  font-weight: normal;
+}
+.S {
+  color: var(--danger);
+}
+.func {
+  color: var(--blue);
+}
+.C {
+  color: var(--warning);
+}
+.kwrd {
+  font-weight: bold;
+}
+.R {
+  color: var(--gray);
+}
+/*# sourceMappingURL=style.css.map */
