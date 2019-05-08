@@ -47,7 +47,7 @@ program
     .version('0.0.1')
     .option('-n, --name [Name project]', 'Name project', 'Slix project')
     .option('-c, --css [engine]', 'Add stylesheet [engine] support (less) (defaults to plain css)', 'less')
-    .option('-v, --view', 'Add view [engine] support (twig) (defaults to twig)', 'twig')
+    .option('-v, --view [engine]', 'Add view [engine] support (twig) (defaults to twig)', 'twig')
     .parse(process.argv);
 
 var pkg = {
@@ -77,6 +77,10 @@ var pkg = {
         "nodemon": "^1.18.10"
     }
 };
+console.dir(program);
+
+console.log("Directory: " + __dirname);
+
 console.log('Create directory:');
 for (let dir of folders) {
     mkdir.sync(dir, MODE_0755);
