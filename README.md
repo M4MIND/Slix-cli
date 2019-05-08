@@ -1,3 +1,5 @@
+[Slix](https://github.com/M4MIND/Slix) application generator.
+
 Installation
 ------------
 
