@@ -50,6 +50,7 @@ program
     .option('-v, --view [engine]', 'Add view [engine] support (twig) (defaults to twig)', 'twig')
     .parse(process.argv);
 
+/** @type {string} **/
 var project = program.name;
 
 var pkg = {
@@ -90,6 +91,7 @@ mkdir.sync(project);
 console.log(`   -> ${project}`);
 
 for (let dir of folders) {
+    console.log(path.join(project, dir));
     mkdir.sync(path.join(project, dir), MODE_0755);
     console.log(`   -> ${dir}`);
 }
