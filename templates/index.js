@@ -1,4 +1,4 @@
-import {Slix} from 'slix';
+import {Slix} from 'slix-app';
 
 let server = new Slix();
 

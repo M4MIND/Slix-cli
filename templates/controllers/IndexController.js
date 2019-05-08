@@ -1,4 +1,4 @@
-import {AbstractController, Response} from "slix"
+import {AbstractController, Response} from "slix-app"
 
 export default class IndexController extends AbstractController {
     mount() {

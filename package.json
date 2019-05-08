@@ -1,6 +1,6 @@
 {
   "name": "slix-cli",
-  "version": "0.0.31",
+  "version": "0.0.5",
   "description": "Generator Slix project",
   "main": "bin/cli.js",
   "preferGlobal": true,
@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/M4MIND/Slix-cli#readme",
   "devDependencies": {
-    "slix": "git+https://github.com/M4MIND/Slix.git"
+    "slix": "git+https://github.com/M4MIND/Slix.git",
+    "slix-app": "0.0.2"
   },
   "dependencies": {
     "commander": "^2.20.0",
