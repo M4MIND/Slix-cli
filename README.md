@@ -16,7 +16,8 @@ Create the app:
 $ slix -n [name-project]
 ```
 
-Install dependencies:
+Install dependencies:<br>
+Go to the application directory and run the command
 ```bash
 $ npm install
 ```
