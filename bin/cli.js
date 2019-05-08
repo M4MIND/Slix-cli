@@ -9,9 +9,9 @@ var templatesPath = path.join(__dirname, '..', 'templates');
 var MODE_0755 = parseInt('0755', 8);
 
 var folders = [
-    path.join(__dirname, '..', 'views'),
-    path.join(__dirname, '..', 'controllers'),
-    path.join(__dirname, '..', 'static')
+    'views',
+    'controllers',
+    'static'
 ];
 
 var copyFiles = [
@@ -91,7 +91,6 @@ mkdir.sync(project);
 console.log(`   -> ${project}`);
 
 for (let dir of folders) {
-    console.log(path.join(project, dir));
     mkdir.sync(path.join(project, dir), MODE_0755);
     console.log(`   -> ${dir}`);
 }
