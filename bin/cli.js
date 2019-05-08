@@ -15,20 +15,46 @@ var folders = [
 ];
 
 var copyFiles = [
-    'index.js',
-    'controllers/IndexController.js',
-    'controllers/PageNotFound.js',
-    'controllers/PageNotFound.js',
-    'static/css/style.css',
-    'views/layout/layout.twig',
-    'views/index.twig',
-    'views/error/404.twig',
-    '.babelrc'
+    {file: 'index.js'},
+    {file: 'controllers/IndexController.js'},
+    {file: 'controllers/PageNotFound.js'},
+    {file: 'controllers/PageNotFound.js'},
+    {
+        file: 'static/css/style.css',
+        type: 'css'
+    },
+    {
+        file: 'static/css/style.less',
+        type: 'less'
+    },
+    {
+        file: 'views/layout/layout.twig',
+        type: 'twig'
+    },
+    {
+        file: 'views/index.twig',
+        type: 'twig'
+    },
+    {
+        file: 'views/error/404.twig',
+        type: 'twig'
+    },
+    {file: '.babelrc'}
 ];
 
+program
+    .name('Slix-cli')
+    .version('0.0.1')
+    .option('-n, --name [Name project]', 'Name project', 'Slix project')
+    .option('-c, --css [engine]', 'Add stylesheet [engine] support (less) (defaults to plain css)', 'less')
+    .option('-v, --view', 'Add view [engine] support (twig) (defaults to twig)', 'twig')
+    .parse(process.argv);
+
 var pkg = {
+    name: program.name,
     version: "0.0.0",
     private: true,
+    description: "Slix application generator",
     scripts: {
         start: "nodemon --exec babel-node ./index.js"
     },
@@ -36,7 +62,6 @@ var pkg = {
         "natives": "^1.1.6",
         "twig": "^1.13.2",
         "slix": "git+https://github.com/M4MIND/Slix.git",
-        "core-js": "^3.0.1"
     },
     devDependencies: {
         "@babel/cli": "^7.2.3",
@@ -48,40 +73,30 @@ var pkg = {
         "@babel/plugin-transform-modules-commonjs": "^7.4.0",
         "@babel/polyfill": "^7.4.3",
         "@babel/preset-env": "^7.4.2",
-        "babel-plugin-add-jsdoc-properties": "^0.1.4",
         "babel-plugin-add-module-exports": "^1.0.0",
-        "browser-sync": "^2.26.3",
-        "gulp": "^4.0.0",
-        "gulp-babel": "^8.0.0",
-        "gulp-cached": "^1.1.1",
-        "gulp-clean": "^0.4.0",
-        "gulp-concat": "^2.6.1",
         "nodemon": "^1.18.10"
     }
 };
-
-/**
- * Module dependencies.
- */
-
-program
-    .name('Slix-cli')
-    .version('0.0.1')
-    .option('-n, --name [Name project]', 'Name project', 'Slix project')
-    .parse(process.argv);
-
-pkg['name'] = program.name;
-
-
+console.log('Create directory:');
 for (let dir of folders) {
     mkdir.sync(dir, MODE_0755);
+    console.log(`   ${dir}`);
 }
 
-for (let file of copyFiles) {
-    mkdir.sync(path.dirname(file));
-    fs.copyFileSync(path.join(templatesPath, file), file);
-}
+console.log();
+console.log('Create files:');
 
+for (let obj of copyFiles) {
+    if (obj.type === program.css || obj.type === program.view) {
+        mkdir.sync(path.dirname(obj.file));
+        fs.copyFileSync(path.join(templatesPath, obj.file), obj.file);
+        console.log(`   ${obj.file}`);
+    }
+}
+console.log();
+console.log('Create package.json');
 fs.writeFileSync('package.json', JSON.stringify(pkg, null, '\t'));
+
+console.log();
 
 console.log('Done! Run the "npm install" command');
