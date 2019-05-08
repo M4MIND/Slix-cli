@@ -45,13 +45,15 @@ var copyFiles = [
 program
     .name('Slix-cli')
     .version('0.0.1')
-    .option('-n, --name [Name project]', 'Name project', 'Slix project')
+    .option('-n, --name [Name project]', 'Name project', 'slix-project')
     .option('-c, --css [engine]', 'Add stylesheet [engine] support (less) (defaults to plain css)', 'less')
     .option('-v, --view [engine]', 'Add view [engine] support (twig) (defaults to twig)', 'twig')
     .parse(process.argv);
 
+var project = program.name;
+
 var pkg = {
-    name: program.name,
+    name: project,
     version: "0.0.0",
     private: true,
     description: "Slix application generator",
@@ -77,14 +79,19 @@ var pkg = {
         "nodemon": "^1.18.10"
     }
 };
-console.dir(program);
 
-console.log("Directory: " + __dirname);
+
+console.log('Generate project: ' + project);
 
 console.log('Create directory:');
+
+mkdir.sync(project);
+
+console.log(`   -> ${project}`);
+
 for (let dir of folders) {
-    mkdir.sync(dir, MODE_0755);
-    console.log(`   ${dir}`);
+    mkdir.sync(path.join(project, dir), MODE_0755);
+    console.log(`   -> ${dir}`);
 }
 
 console.log();
@@ -93,13 +100,14 @@ console.log('Create files:');
 for (let obj of copyFiles) {
     if (obj.type === program.css || obj.type === program.view) {
         mkdir.sync(path.dirname(obj.file));
-        fs.copyFileSync(path.join(templatesPath, obj.file), obj.file);
-        console.log(`   ${obj.file}`);
+        fs.copyFileSync(path.join(templatesPath, obj.file), path.join(project, obj.file));
+        console.log(`   -> ${obj.file}`);
     }
 }
+
 console.log();
+fs.writeFileSync(path.join(project, 'package.json'), JSON.stringify(pkg, null, '\t'));
 console.log('Create package.json');
-fs.writeFileSync('package.json', JSON.stringify(pkg, null, '\t'));
 
 console.log();
 
