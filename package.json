@@ -1,11 +1,11 @@
 {
   "name": "slix-cli",
-  "version": "0.0.0",
+  "version": "0.0.31",
   "description": "Generator Slix project",
   "main": "bin/cli.js",
   "preferGlobal": true,
   "bin": {
-    "slix": "bin/cli.js"
+    "slix-cli": "bin/cli.js"
   },
   "scripts": {
     "test": "node bin/cli.js"
