@@ -99,7 +99,7 @@ console.log();
 console.log('Create files:');
 
 for (let obj of copyFiles) {
-    if (obj.type === program.css || obj.type === program.view) {
+    if (obj.type === program.css || obj.type === program.view || obj.type === undefined) {
         mkdir.sync(path.join(project, path.dirname(obj.file)));
         fs.copyFileSync(path.join(templatesPath, obj.file), path.join(project, obj.file));
         console.log(`   -> ${obj.file}`);
