@@ -11,7 +11,8 @@ var MODE_0755 = parseInt('0755', 8);
 var folders = [
     'views',
     'controllers',
-    'static'
+    'static',
+    'config'
 ];
 
 var copyFiles = [
@@ -20,9 +21,14 @@ var copyFiles = [
     {file: 'controllers/PageNotFound.js'},
     {file: 'controllers/PageNotFound.js'},
     {file: 'static/css/style.css'},
+    {file: 'config/config.json'},
     {
         file: 'static/css/style.less',
         type: 'less'
+    },
+    {
+        file: 'static/css/style.scss',
+        type: 'scss'
     },
     {
         file: 'views/layout/layout.twig',
@@ -43,7 +49,7 @@ program
     .name('Slix-cli')
     .version('0.0.1')
     .option('-n, --name [Name project]', 'Name project', 'slix-project')
-    .option('-c, --css [engine]', 'Add stylesheet [engine] support (less) (defaults to plain css)', 'less')
+    .option('-c, --css [engine]', 'Add stylesheet [engine] support (less|scss) (defaults to less)', 'less')
     .option('-v, --view [engine]', 'Add view [engine] support (twig) (defaults to twig)', 'twig')
     .parse(process.argv);
 
@@ -60,8 +66,7 @@ var pkg = {
     },
     dependencies: {
         "natives": "^1.1.6",
-        "twig": "^1.13.2",
-        "slix-app": "0.0.2",
+        "slix-app": "^1.0.0",
     },
     devDependencies: {
         "@babel/cli": "^7.2.3",
@@ -74,6 +79,7 @@ var pkg = {
         "@babel/polyfill": "^7.4.3",
         "@babel/preset-env": "^7.4.2",
         "babel-plugin-add-module-exports": "^1.0.0",
+        "babel-plugin-inline-json-import": "^0.3.2",
         "nodemon": "^1.18.10"
     }
 };
